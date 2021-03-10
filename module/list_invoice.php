@@ -10,10 +10,10 @@
             $response["code"] = 404;
             $response["status"] = false;
         } else {
-            $response["message"] = "Data tersedia didatabase";
-            $response["code"] = 200;
-            $response["totalinvoice"] = $cekketersediaandata[exist_invoice];    
+            $response["message"] = "Congrat!, Data list invoice tersedia didatabase";
+            $response["code"] = 200; 
             $response["status"] = true;
+            $response["totalinvoice"] = ROUND($cekketersediaandata[exist_invoice]);
             $response["invoicelist"] = array();
 
             $list_invoice = mysqli_query($_AUTH, "SELECT * FROM tbl_invoice;");
