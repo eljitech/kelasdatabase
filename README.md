@@ -26,3 +26,6 @@ Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-tema
 * Membuat API Koneksi & List Invoice
 
 <img src="https://github.com/eljitech/kelasandroid/blob/master/capture/screencapture/Screenshot%20from%202021-03-10%2007-30-18.png"/>
+
+## Update Vidio / Recorder Ada di link berikut
+* Playlist YouTube <a href="https://youtube.com/playlist?list=PLPFGYO1qkmE2xYpnVA7MBDl8LjKNiuxY0">Kelas Android Batch #1</a>
