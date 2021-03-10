@@ -17,6 +17,7 @@ Malam ini kita akan preparation class dengan mengetahui tujuan dari kelas, dan p
 Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-teman yang sudah mengikuti kelas Android dapat mengakses vidio recording serta materi dibawah ini.
 
 ## Pekan #1 : Mempersiapkan Project Backend API Invoice App
+### Pertemuan 1 : 8 Maret 2021
 * Apa itu API?
 * Membas Konsep / Cara Kerja dari API
 * Kenapa harus Menggunakan API
@@ -24,6 +25,15 @@ Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-tema
 * Import Database ke MySQL Server local dengan PhpMyAdmin
 * Membuat Project Backend API Invoice di VsCode
 * Membuat API Koneksi & List Invoice
+
+<img src="https://github.com/eljitech/kelasandroid/blob/master/capture/screencapture/Screenshot%20from%202021-03-10%2007-30-18.png"/>
+
+### Pertemuan 2 : 10 Maret 2021
+* Review Solve Problem API List Invoice
+* Update Relasi Table Staff dipindahkan ke Table Invoice
+* Membuat API Invoice dengan Method POST
+* Pembahasan Query (Module Pencarian No Invoice, Module Header Invoice berdasarkan No Invoice, Module Data Perusahaan yang Mengorder Barang berdasarkan No. Order, Module Listing Order Barang dari Perusahaan berdasasrkan No. Invoice & Module Sub Total, Potong Pajak, Biaya Kirim & Total Pembayaran berdasarkan No. Invoice)
+* Menampilkan kedalam bentuk JSON
 
 <img src="https://github.com/eljitech/kelasandroid/blob/master/capture/screencapture/Screenshot%20from%202021-03-10%2007-30-18.png"/>
 
