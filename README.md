@@ -27,18 +27,15 @@ Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-tema
 * Membuat API Koneksi & List Invoice
 
 <img src="https://github.com/eljitech/kelasandroid/blob/master/capture/screencapture/Screenshot%20from%202021-03-10%2007-30-18.png"/>
-<<<<<<< HEAD
-=======
 
 ### Pertemuan 2 : 10 Maret 2021
 * Review Solve Problem API List Invoice
 * Update Relasi Table Staff dipindahkan ke Table Invoice
 * Membuat API Invoice dengan Method POST
-* Pembahasan Query (Module Pencarian No Invoice, Module Header Invoice berdasarkan No Invoice, Module Data Perusahaan yang Mengorder Barang berdasarkan No. Order, Module Listing Order Barang dari Perusahaan berdasasrkan No. Invoice & Module Sub Total, Potong Pajak, Biaya Kirim & Total Pembayaran berdasarkan No. Invoice)
+* Pembahasan Query (Module Pencarian No Invoice ✓, Module Header Invoice berdasarkan No Invoice ✘, Module Data Perusahaan yang Mengorder Barang berdasarkan No. Invoice ✘, Module Listing Order Barang dari Perusahaan berdasasrkan No. Invoice & Module Sub Total, Potong Pajak, Biaya Kirim & Total Pembayaran berdasarkan No. Invoice ✘)
 * Menampilkan kedalam bentuk JSON
 
-<img src="https://github.com/eljitech/kelasandroid/blob/master/capture/screencapture/Screenshot%20from%202021-03-10%2007-30-18.png"/>
+<img src="https://github.com/eljitech/kelasandroid/blob/master/capture/snapshot/Peek%202021-03-11%2006-08.gif"/>
 
 ## Update Vidio / Recorder Ada di link berikut
 * Playlist YouTube <a href="https://youtube.com/playlist?list=PLPFGYO1qkmE2xYpnVA7MBDl8LjKNiuxY0">Kelas Android Batch #1</a>
->>>>>>> d27623936b64c108bb6ee6fc9f3dfa092db653d1
