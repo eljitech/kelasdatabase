@@ -13,11 +13,11 @@ Berikut merupakan tampilan UI sekilas apps kita
 
 Malam ini kita akan preparation class dengan mengetahui tujuan dari kelas, dan penentuan jadwal kelas. Sampai jumpa, kita start ba'da magrib di Skype berikut linknya https://join.skype.com/uTKi4melOiH2
 
-## Pertemuan Kelas Android Batch #1 (Vidio Sudah di Upload, Silahkan Cek di Link Paling Bawah)
+## Pertemuan Kelas Android Batch #1 
 Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-teman yang sudah mengikuti kelas Android dapat mengakses vidio recording serta materi dibawah ini.
 
 ## Pekan #1 : Mempersiapkan Project Backend API Invoice App
-### Pertemuan 1 : 8 Maret 2021
+### Pertemuan 1 : 8 Maret 2021 (Vidio Sudah di Upload, Silahkan Cek di Link Paling Bawah)
 * Apa itu API?
 * Membas Konsep / Cara Kerja dari API
 * Kenapa harus Menggunakan API
