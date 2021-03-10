@@ -13,7 +13,7 @@ Berikut merupakan tampilan UI sekilas apps kita
 
 Malam ini kita akan preparation class dengan mengetahui tujuan dari kelas, dan penentuan jadwal kelas. Sampai jumpa, kita start ba'da magrib di Skype berikut linknya https://join.skype.com/uTKi4melOiH2
 
-## Pertemuan Kelas Android Batch #1
+## Pertemuan Kelas Android Batch #1 (Vidio Sudah di Upload, Silahkan Cek di Link Paling Bawah)
 Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-teman yang sudah mengikuti kelas Android dapat mengakses vidio recording serta materi dibawah ini.
 
 ## Pekan #1 : Mempersiapkan Project Backend API Invoice App
@@ -28,7 +28,7 @@ Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-tema
 
 <img src="https://github.com/eljitech/kelasandroid/blob/master/capture/screencapture/Screenshot%20from%202021-03-10%2007-30-18.png"/>
 
-### Pertemuan 2 : 10 Maret 2021
+### Pertemuan 2 : 10 Maret 2021 (Vidio Sudah di Upload, Silahkan Cek di Link Paling Bawah)
 * Review Solve Problem API List Invoice
 * Update Relasi Table Staff dipindahkan ke Table Invoice
 * Membuat API Invoice dengan Method POST
