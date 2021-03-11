@@ -37,5 +37,5 @@ Dibawah ini merupakan materi yang di bahas dalam kelas Android, untuk teman-tema
 
 <img src="https://github.com/eljitech/kelasandroid/blob/master/capture/snapshot/Peek%202021-03-11%2006-08.gif"/>
 
-## Update Vidio / Recorder Ada di link berikut
-* Playlist YouTube <a href="https://youtube.com/playlist?list=PLPFGYO1qkmE2xYpnVA7MBDl8LjKNiuxY0">Kelas Android Batch #1</a>
+## Update Vidio Pertemuan / Recorder Ada di link berikut
+* Playlist YouTube <a href="https://youtube.com/playlist?list=PLPFGYO1qkmE1VY9MrGadtUci65_pB10f">Kelas Android Batch #1</a>
