@@ -37,6 +37,41 @@
                 "nama_staff" => $profiling_headerinvoice['nama_staff'],
                 "posisi" => $profiling_headerinvoice['posisi']
             ];
+
+            // 3. Module Menampilkan Informasi Data Partner 
+            $infopartner = mysqli_query($_AUTH, "SELECT tbl_partner.nama_partner, tbl_partner.alamat_partner, CONCAT(tbl_partner.kota, ' - ', tbl_partner.kode_partner) AS kota_kodepos FROM tbl_partner JOIN tbl_transaksi ON tbl_transaksi.kode_partner=tbl_partner.kode_partner WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
+            $fetchpartner = mysqli_fetch_assoc($infopartner);
+
+            $response["info_partner"] = [
+                "nama_perusahaan" => $fetchpartner['nama_partner'],
+                "alamat_perusahaan" => $fetchpartner['alamat_partner'],
+                "kode_pos" => $fetchpartner['kota_kodepos']
+            ];
+
+            $listprodukpo = mysqli_query($_AUTH, "SELECT tbl_produk.kode_produk, tbl_produk.produk, tbl_produk.harga_satuan, tbl_produk.satuan, tbl_produk.minimum_request, tbl_produk.diskon, tbl_transaksi.jml_qty, tbl_produk.harga_satuan*tbl_transaksi.jml_qty AS jumlah, IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, 'Diskon','Tidak Diskon') AS keterangan_diskon, IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, ROUND((tbl_produk.harga_satuan * tbl_transaksi.jml_qty) * tbl_produk.diskon/100, 0), 0) AS potongan_harga, tbl_produk.harga_satuan*tbl_transaksi.jml_qty - IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, ROUND((tbl_produk.harga_satuan * tbl_transaksi.jml_qty) * tbl_produk.diskon/100, 0), 0) AS total_bayar FROM tbl_transaksi JOIN tbl_produk ON tbl_produk.kode_produk=tbl_transaksi.kode_produk WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
+
+            $total_dataprodukpo = mysqli_query($_AUTH, "SELECT COUNT(*) 'total_produkpo' FROM tbl_transaksi JOIN tbl_produk ON tbl_produk.kode_produk=tbl_transaksi.kode_produk WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
+            $fetch_productpototal = mysqli_fetch_assoc($total_dataprodukpo);
+
+            $response["total_produkpo"] = $fetch_productpototal['total_produkpo'];
+            $response["list_produkpo"] = array();
+
+            while($row = mysqli_fetch_array($listprodukpo)) {
+                $data = array();
+
+                $data['kode_produk'] = $row['kode_produk'];
+                $data['produk'] = $row['produk'];
+                $data['harga_satuan'] = $row['harga_satuan'];
+                $data['satuan'] = $row['satuan'];
+                $data['diskon'] = $row['diskon'];
+                $data['jml_qty'] = $row['jml_qty'];
+                $data['jumlah'] = ROUND($row['jumlah']);
+                $data['keterangan_diskon'] = $row['keterangan_diskon'];
+                $data['potongan_harga'] = $row['potongan_harga'];
+                $data['total_bayar'] = $row['total_bayar'];
+
+                array_push($response['list_produkpo'], $data);
+            }
         }
 
         echo json_encode($response);
