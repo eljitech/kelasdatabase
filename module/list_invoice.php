@@ -5,7 +5,7 @@
         $cekexistdata = mysqli_query($_AUTH, "SELECT COUNT(no_invoice) 'exist_invoice' FROM tbl_invoice ORDER BY tanggal_dibuat;");
         $cekketersediaandata = mysqli_fetch_assoc($cekexistdata);
 
-        if($cekketersediaandata[exist_invoice] == 0) {
+        if($cekketersediaandata['exist_invoice'] == 0) {
             $response["message"] = "Data tidak tersedia didatabase";
             $response["code"] = 404;
             $response["status"] = false;
@@ -13,7 +13,6 @@
             $response["message"] = "Congrat!, Data list invoice tersedia didatabase";
             $response["code"] = 200; 
             $response["status"] = true;
-            $response["totalinvoice"] = ROUND($cekketersediaandata[exist_invoice]);
             $response["invoicelist"] = array();
 
             $list_invoice = mysqli_query($_AUTH, "SELECT tbl_invoice.no_invoice, tbl_invoice.tanggal_dibuat, tbl_invoice.tgl_jatuhtempo, tbl_staff.no_staff, tbl_staff.nama_staff, tbl_staff.posisi FROM tbl_invoice JOIN tbl_staff ON tbl_staff.no_staff=tbl_invoice.no_staff");
@@ -30,6 +29,8 @@
 
                 array_push($response['invoicelist'], $data);
             }
+
+            $response["totaldata"] = ROUND($cekketersediaandata['exist_invoice']);
         }
         echo json_encode($response);
     } else {
