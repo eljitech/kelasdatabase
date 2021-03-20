@@ -48,12 +48,13 @@
                 "kode_pos" => $fetchpartner['kota_kodepos']
             ];
 
+            // 4. Module Menampilkan List Data Produk yang Dipesan
             $listprodukpo = mysqli_query($_AUTH, "SELECT tbl_produk.kode_produk, tbl_produk.produk, tbl_produk.harga_satuan, tbl_produk.satuan, tbl_produk.minimum_request, tbl_produk.diskon, tbl_transaksi.jml_qty, tbl_produk.harga_satuan*tbl_transaksi.jml_qty AS jumlah, IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, 'Diskon','Tidak Diskon') AS keterangan_diskon, IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, ROUND((tbl_produk.harga_satuan * tbl_transaksi.jml_qty) * tbl_produk.diskon/100, 0), 0) AS potongan_harga, tbl_produk.harga_satuan*tbl_transaksi.jml_qty - IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, ROUND((tbl_produk.harga_satuan * tbl_transaksi.jml_qty) * tbl_produk.diskon/100, 0), 0) AS total_bayar FROM tbl_transaksi JOIN tbl_produk ON tbl_produk.kode_produk=tbl_transaksi.kode_produk WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
 
             $total_dataprodukpo = mysqli_query($_AUTH, "SELECT COUNT(*) 'total_produkpo' FROM tbl_transaksi JOIN tbl_produk ON tbl_produk.kode_produk=tbl_transaksi.kode_produk WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
             $fetch_productpototal = mysqli_fetch_assoc($total_dataprodukpo);
 
-            $response["total_produkpo"] = $fetch_productpototal['total_produkpo'];
+            $response["total_produkpo"] = ROUND($fetch_productpototal['total_produkpo']);
             $response["list_produkpo"] = array();
 
             while($row = mysqli_fetch_array($listprodukpo)) {
@@ -63,15 +64,60 @@
                 $data['produk'] = $row['produk'];
                 $data['harga_satuan'] = $row['harga_satuan'];
                 $data['satuan'] = $row['satuan'];
-                $data['diskon'] = $row['diskon'];
-                $data['jml_qty'] = $row['jml_qty'];
+                $data['diskon'] = ROUND($row['diskon']);
+                $data['jml_qty'] = ROUND($row['jml_qty']);
                 $data['jumlah'] = ROUND($row['jumlah']);
                 $data['keterangan_diskon'] = $row['keterangan_diskon'];
-                $data['potongan_harga'] = $row['potongan_harga'];
-                $data['total_bayar'] = $row['total_bayar'];
+                $data['potongan_harga'] = ROUND($row['potongan_harga']);
+                $data['total_bayar'] = ROUND($row['total_bayar']);
 
                 array_push($response['list_produkpo'], $data);
             }
+
+            // 5. Module Menampilkan Total Pembayaran, PPN s/d Ongkir
+            $subtotalharga = mysqli_query($_AUTH, "SELECT SUM(tbl_produk.harga_satuan*tbl_transaksi.jml_qty - IF(tbl_transaksi.jml_qty>=tbl_produk.minimum_request, ROUND((tbl_produk.harga_satuan * tbl_transaksi.jml_qty) * tbl_produk.diskon/100, 0), 0)) AS total_bayar FROM tbl_transaksi JOIN tbl_produk ON tbl_produk.kode_produk=tbl_transaksi.kode_produk WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
+            $fetching_finalharga = mysqli_fetch_assoc($subtotalharga);
+
+            $sub_total = $fetching_finalharga['total_bayar'];
+
+            switch ($sub_total) {
+                case 25000000: 
+                    $potong_pajak = 25 / 100 * $sub_total;
+                    $ongkir = 3 / 100 * $potong_pajak;
+                    break;
+                    case 30000000: 
+                        $potong_pajak = 30 / 100 * $sub_total;
+                        $ongkir = 6 / 100 * $potong_pajak;
+                        break;
+                        case 35000000: 
+                            $potong_pajak = 35 / 100 * $sub_total;
+                            $ongkir = 9 / 100 * $potong_pajak;
+                            break;
+                            case 40000000: 
+                                $potong_pajak = 40 / 100 * $sub_total;
+                                $ongkir = 12 / 100 * $potong_pajak;
+                                break;
+                                case 45000000: 
+                                    $potong_pajak = 45 / 100 * $sub_total;
+                                    $ongkir = 15 / 100 * $potong_pajak;
+                                    break;
+                                    case 50000000: 
+                                        $potong_pajak = 50 / 100 * $sub_total;
+                                        $ongkir = 18 / 100 * $potong_pajak;
+                                        break;
+                                        default: 
+                                                $potong_pajak = 10 / 100 * $sub_total;
+                                                $ongkir = 5 / 100 * $potong_pajak;
+                                                break;
+            }
+
+            $response["datatotalpo"] = [
+                "subtotal" => ROUND($sub_total),
+                "ppn" => ROUND($potong_pajak),
+                "angkir" => ROUND($ongkir),
+                "totalbayar" => ROUND($sub_total - $potong_pajak + $ongkir)
+            ];
+            
         }
 
         echo json_encode($response);
