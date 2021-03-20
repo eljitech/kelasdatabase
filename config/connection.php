@@ -1,6 +1,7 @@
 <?php
     // 17 Maret 2021 : Final Module test Kelas Android Batch #1
-    // Branch : backend
+    // Branch   : backend
+    // Tag      : v1.0
     $SERVER = "localhost";
     $USERBD = "root";
     $PASSDB = "!!&21adi";

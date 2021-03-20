@@ -3,6 +3,7 @@
 -- https://www.phpmyadmin.net/
 -- 17 Maret 2021 : Final Module test Kelas Android Batch #1
 -- Branch : backend
+-- Tag      : v1.0
 --
 -- Host: localhost:3306
 -- Generation Time: Mar 20, 2021 at 07:16 PM
