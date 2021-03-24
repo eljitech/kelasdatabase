@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ListInvoiceActivity">
+    tools:context=".views.DetailInvoiceActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="15dp"
-        android:id="@+id/rvListInvoice"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="No Invoice"
+        android:id="@+id/getNoInvoice"/>
 
 </RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/list_noInvoice"
+                    android:textStyle="bold"
+                    android:textSize="14pt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="#FT/12/02/2021"/>
+
+                <TextView
+                    android:id="@+id/list_noDetailPO"
+                    android:textSize="6pt"
+                    android:textColor="#464242"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PO-1/01/2021 - 2801923813 - Wirda Anggraeni"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/list_statusInvoice"
+                android:textSize="6pt"
+                android:textColor="#3B8A56"
+                android:textStyle="bold"
+                android:gravity="right|bottom"
+                android:layout_weight="5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Active"/>
+
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>

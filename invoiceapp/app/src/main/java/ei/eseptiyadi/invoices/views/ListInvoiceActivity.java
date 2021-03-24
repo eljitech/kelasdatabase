@@ -7,7 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.List;
+
 import ei.eseptiyadi.invoices.R;
+import ei.eseptiyadi.invoices.adapter.AdapterListInvoice;
+import ei.eseptiyadi.invoices.models.InvoicelistItem;
+import ei.eseptiyadi.invoices.models.RequestListInvoice;
+import ei.eseptiyadi.invoices.network.ApiServices;
+import ei.eseptiyadi.invoices.network.RetrofitClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ListInvoiceActivity extends AppCompatActivity {
 
@@ -18,6 +28,7 @@ public class ListInvoiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listinvoice);
+        getSupportActionBar().setTitle("List Invoice");
 
         Log.d("LOG", "LIFECYCLE : OnCreate");
 
@@ -35,6 +46,24 @@ public class ListInvoiceActivity extends AppCompatActivity {
 
     private void tampilkanListInvoice() {
         // Request list data invoice dikerjakan disini
+        ApiServices apiServices = RetrofitClient.getInstance();
+        Call<RequestListInvoice> requestListInvoiceCall = apiServices.req_listinvoice();
+
+        requestListInvoiceCall.enqueue(new Callback<RequestListInvoice>() {
+            @Override
+            public void onResponse(Call<RequestListInvoice> call, Response<RequestListInvoice> response) {
+                if (response.isSuccessful()) {
+                        List<InvoicelistItem> itemInvoice = response.body().getInvoicelist();
+                        AdapterListInvoice adapterListInvoice = new AdapterListInvoice(ListInvoiceActivity.this, itemInvoice);
+                        listInvoice.setAdapter(adapterListInvoice);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RequestListInvoice> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
