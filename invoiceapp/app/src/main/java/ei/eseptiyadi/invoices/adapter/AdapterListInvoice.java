@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import ei.eseptiyadi.invoices.R;
-import ei.eseptiyadi.invoices.models.InvoicelistItem;
+import ei.eseptiyadi.invoices.models.list.InvoicelistItem;
 import ei.eseptiyadi.invoices.views.DetailInvoiceActivity;
 
 public class AdapterListInvoice extends RecyclerView.Adapter<AdapterListInvoice.MyViewHolder> {

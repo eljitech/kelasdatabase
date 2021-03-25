@@ -1,4 +1,4 @@
-package ei.eseptiyadi.invoices.models;
+package ei.eseptiyadi.invoices.models.list;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;

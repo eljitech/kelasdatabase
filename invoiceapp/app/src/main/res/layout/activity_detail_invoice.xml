@@ -6,10 +6,109 @@
     android:layout_height="match_parent"
     tools:context=".views.DetailInvoiceActivity">
 
-    <TextView
+    <RelativeLayout
+        android:background="#5C3ED3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="No Invoice"
-        android:id="@+id/getNoInvoice"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/getNoInvoice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="FT/30/01/2021"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="9pt"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:textColor="#FFFFFF"
+                        android:id="@+id/getTglBuatInvoice"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="4pt"
+                        android:text="2021-01-30 02:46:14"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:id="@+id/getStaff"
+                    android:gravity="bottom|right"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="4pt"
+                    android:text="2801923813 - Wirda Anggraeni"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/getNamaPerusahaan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PT. Lokakarya Multi Inti Factory Bekasi"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="5pt"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:textColor="#FFFFFF"
+                        android:id="@+id/getAlamatPerusahaan"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="4pt"
+                        android:text="Jl. Raya Tambun, No. 22, Bekasi - 17550"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="#FFFFFF"
+                    android:id="@+id/getKodePerusahaan"
+                    android:gravity="top|right"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="5pt"
+                    android:text="CM0123"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

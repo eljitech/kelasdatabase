@@ -11,8 +11,8 @@ import java.util.List;
 
 import ei.eseptiyadi.invoices.R;
 import ei.eseptiyadi.invoices.adapter.AdapterListInvoice;
-import ei.eseptiyadi.invoices.models.InvoicelistItem;
-import ei.eseptiyadi.invoices.models.RequestListInvoice;
+import ei.eseptiyadi.invoices.models.list.InvoicelistItem;
+import ei.eseptiyadi.invoices.models.list.RequestListInvoice;
 import ei.eseptiyadi.invoices.network.ApiServices;
 import ei.eseptiyadi.invoices.network.RetrofitClient;
 import retrofit2.Call;
