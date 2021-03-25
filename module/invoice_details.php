@@ -42,10 +42,11 @@
             ];
 
             // 3. Module Menampilkan Informasi Data Partner 
-            $infopartner = mysqli_query($_AUTH, "SELECT tbl_partner.nama_partner, tbl_partner.alamat_partner, CONCAT(tbl_partner.kota, ' - ', tbl_partner.kode_partner) AS kota_kodepos FROM tbl_partner JOIN tbl_transaksi ON tbl_transaksi.kode_partner=tbl_partner.kode_partner WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
+            $infopartner = mysqli_query($_AUTH, "SELECT tbl_partner.kode_partner, tbl_partner.nama_partner, tbl_partner.alamat_partner, CONCAT(tbl_partner.kota, ' - ', tbl_partner.kode_pos) AS kota_kodepos FROM tbl_partner JOIN tbl_transaksi ON tbl_transaksi.kode_partner=tbl_partner.kode_partner WHERE tbl_transaksi.no_invoice = '$cari_noinvoice'");
             $fetchpartner = mysqli_fetch_assoc($infopartner);
 
             $response["info_partner"] = [
+                "kode_pt" => $fetchpartner['kode_partner'],
                 "nama_perusahaan" => $fetchpartner['nama_partner'],
                 "alamat_perusahaan" => $fetchpartner['alamat_partner'],
                 "kode_pos" => $fetchpartner['kota_kodepos']
