@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/kdProduct"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No. #B7623991"/>
+
+        <TextView
+            android:id="@+id/nmProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="4.7pt"
+            android:text="Monitor Led Samsung 22SF350"/>
+
+        <TextView
+            android:id="@+id/ttlUnit"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ordered 5 /unit"/>
+
+        <TextView
+            android:id="@+id/hrgDiscount"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discount IDR. 159800"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hrgSatuan"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IDR. 1325000"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="4.7pt"
+            android:text=""/>
+
+        <TextView
+            android:id="@+id/hrgCoret"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:paddingTop="10dp"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IDR. 6625000"/>
+
+        <TextView
+            android:id="@+id/hrgPotong"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:gravity="bottom|right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="IDR. 1438200"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

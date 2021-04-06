@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E5E5E5"
     tools:context=".views.DetailInvoiceActivity">
 
     <RelativeLayout
+        android:id="@+id/rlViewDetailFactur"
         android:background="#5C3ED3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -109,6 +111,53 @@
         </LinearLayout>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rlViewDetailFactur"
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="List Orderer Info"/>
+
+            <TextView
+                android:id="@+id/totalDataProductfromFactur"
+                android:textSize="4pt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 Ordered Product"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/details"
+        android:id="@+id/rvListProductinFactur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </RelativeLayout>

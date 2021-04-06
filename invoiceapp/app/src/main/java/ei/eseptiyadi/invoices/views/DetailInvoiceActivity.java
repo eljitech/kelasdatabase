@@ -1,12 +1,19 @@
 package ei.eseptiyadi.invoices.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 import ei.eseptiyadi.invoices.R;
+import ei.eseptiyadi.invoices.adapter.AdapterListProduct;
+import ei.eseptiyadi.invoices.models.details.ListProdukpoItem;
 import ei.eseptiyadi.invoices.models.details.RequestDetailInvoice;
 import ei.eseptiyadi.invoices.network.ApiServices;
 import ei.eseptiyadi.invoices.network.RetrofitClient;
@@ -16,7 +23,9 @@ import retrofit2.Response;
 
 public class DetailInvoiceActivity extends AppCompatActivity {
 
-    TextView txgetNoInvoice, txtgetTglBuatInvoice, txtStaff, txtgetNamaPerusahaan, txtgetAlamatCompany, txtgetKodeCompany;
+    TextView txgetNoInvoice, txtgetTglBuatInvoice, txtStaff, txtgetNamaPerusahaan, txtgetAlamatCompany, txtgetKodeCompany, txtgetTotalDataProduct;
+
+    RecyclerView rvListProductfromFactur;
 
     String no_invoice = "";
 
@@ -38,12 +47,49 @@ public class DetailInvoiceActivity extends AppCompatActivity {
         txtgetNamaPerusahaan = (TextView)findViewById(R.id.getNamaPerusahaan);
         txtgetAlamatCompany = (TextView)findViewById(R.id.getAlamatPerusahaan);
         txtgetKodeCompany = (TextView)findViewById(R.id.getKodePerusahaan);
+        txtgetTotalDataProduct = (TextView)findViewById(R.id.totalDataProductfromFactur);
+        rvListProductfromFactur = (RecyclerView)findViewById(R.id.rvListProductinFactur);
+
 
         txgetNoInvoice.setText(invoiceGet);
 
         no_invoice = invoiceGet;
 
+        rvListProductfromFactur.setHasFixedSize(true);
+        rvListProductfromFactur.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        moduleListProductfromPO(no_invoice);
         moduleRequestDetailInvoice(no_invoice);
+    }
+
+    private void moduleListProductfromPO(String no_invoice) {
+        ApiServices apiServices = RetrofitClient.getInstance();
+        Call<RequestDetailInvoice> reqListProduct = apiServices.reqDetailInvoice(no_invoice);
+
+        reqListProduct.enqueue(new Callback<RequestDetailInvoice>() {
+            @Override
+            public void onResponse(Call<RequestDetailInvoice> call, Response<RequestDetailInvoice> response) {
+                if (response.isSuccessful()) {
+                    int statuscode = response.body().getCode();
+
+                    if (statuscode == 200) {
+                        int totalDataProduct = response.body().getTotalProdukpo();
+
+                        txtgetTotalDataProduct.setText(totalDataProduct + " Ordered Product");
+                        List<ListProdukpoItem> poItem = response.body().getListProdukpo();
+                        AdapterListProduct adpListProductfromPO = new AdapterListProduct(DetailInvoiceActivity.this, poItem);
+                        rvListProductfromFactur.setAdapter(adpListProductfromPO);
+                    } else {
+                        Toast.makeText(DetailInvoiceActivity.this, "Data tidak ditemukan.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RequestDetailInvoice> call, Throwable t) {
+
+            }
+        });
     }
 
     private void moduleRequestDetailInvoice(String no_invoice) {
